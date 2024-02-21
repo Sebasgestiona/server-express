@@ -12,6 +12,34 @@ app.get('/api/hello', (req, res) => {
   res.json({ message: 'hello por GET' });
 });
 
+// Definir la ruta para GET /api
+app.get('/api', (req, res) => {
+  // Crear el objeto JSON con la información de la API
+  const apiInfo = {
+    version: '1.0',
+    endpoints: [
+      {
+        url: '/users',
+        methods: ['GET', 'POST'],
+        description: 'Endpoint para obtener y crear usuarios.',
+      },
+      {
+        url: '/posts',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        description: 'Endpoint para gestionar publicaciones de usuarios.',
+      },
+      {
+        url: '/comments',
+        methods: ['GET', 'POST'],
+        description: 'Endpoint para manejar comentarios en publicaciones.',
+      },
+    ],
+  };
+
+  // Enviar la respuesta como JSON
+  res.json(apiInfo);
+});
+
 app.listen(3000, () => {
   //mensaje que queremos que aparezca cada vez que se reinicia el servidor.
   console.log('Server listening on port 3000');
