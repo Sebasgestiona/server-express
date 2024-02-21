@@ -1,9 +1,7 @@
 const express = require('express');
-
+const app = express();
 //PAth se utiliza para no tener que crear rutas absolutas.
 const path = require('path');
-
-const app = express();
 
 app.get('/', (req, res) => {
   //creamos una ruta simplificada para no tener que crear rutas absolutas en el futuro.
